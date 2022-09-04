@@ -104,37 +104,17 @@
         Buy With bnb</span>
 </button>  
 
-    <script>
+  <script>
       let addr;
       const presaleadd = "0x6AF42aaa0bB106d5527e823dE2c5CF88B84d3BC5";
+      const oldProvider = web3.currentProvider; // keep a reference to metamask provider
 
-
-      const loadweb3 = async() => {
-          try {
-              web3 = new web3js.myweb3(window.ethereum);
-
-              let a = await ethereum.enable();
-              addr = web3.utils.toChecksumAddress(a[0]);
-
-              return (addr);
-
-          } catch (error) {
-              if (error.code === 4001) {
-                  console.log('Please connect to MetaMask.')
-              } else {
-                  console.error(error)
-              }
-          }
-
-      };
-
-
-
-
+      myWeb3 = new Web3(oldProvider); 
+ 
 
       const buystt = async() => {
 
-          await loadweb3();
+  
 //
          // if (addr == undefined) {
               //alert("No BEP20 wallet detected or it was not allowed to connect. Trust wallet or Metamask are recommended.");
